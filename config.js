@@ -1,2 +1,2 @@
 // URL publik Web App Apps Script Berrycert; bukan kredensial rahasia.
-window.BERRYCERT_API_URL = "https://script.google.com/macros/s/AKfycbwWtQlT3M2C5F7OkkauLIosf5qIwvgoHsnD0ezms0nzBgBziuZIV_0FbXBvULfT_ueW/exec";
+window.BERRYCERT_API_URL = "https://script.google.com/macros/s/AKfycby99LG4wsyy_g_zRneyC6322OggY4c-jjdjY-izOx_wjfBE0pn71e_jmo26jft8IgZb/exec";

@@ -45,6 +45,7 @@ function getPublicData() {
       title: row.title,
       description: row.description,
       date: row.period,
+      speaker: row.speaker || '',
       duration: row.duration,
       level: row.level,
       passingScore: Number(row.passing_score),

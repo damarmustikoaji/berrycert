@@ -31,7 +31,7 @@ Catatan: penyimpanan lokal dapat dihapus atau diubah oleh pengguna. Jangan gunak
 
 ## Penyimpanan dan sertifikat
 
-Nama tersimpan di `localStorage` dengan kunci `berrycert.profile.v1`; hasil lulus memakai `berrycert.completions.v1`. Catatan dapat diakses kembali dari browser yang sama selama datanya tidak dihapus. Peserta sebaiknya mengunduh file sertifikat untuk arsip. Tombol PDF memakai fitur cetak browser.
+Nama tersimpan di `localStorage` dengan kunci `berrycert.profile.v1`; hasil lulus memakai `berrycert.completions.v1`. Catatan dapat diakses kembali dari browser yang sama selama datanya tidak dihapus. Peserta sebaiknya mengunduh file sertifikat untuk arsip. Tombol PDF memakai fitur cetak browser. Preview, PNG, dan PDF dirender dari satu SVG yang sama (`certificate.js`), jadi tampilannya selalu identik. Logo ada di `logo-mark.svg` (header dan favicon) dan `logo.svg`; `apple-touch-icon.png` dan `favicon-32.png` adalah hasil ekspornya.
 
 ## Data produksi
 
