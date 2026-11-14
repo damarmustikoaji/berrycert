@@ -14,7 +14,7 @@ function doGet(e) {
         answers: JSON.parse(params.answers || '[]')
       });
     } else {
-      throw new Error('Action tidak dikenal. Gunakan data atau grade.');
+      throw new Error('Unknown action. Use data or grade.');
     }
     return apiResponse_({ ok: true, data: data }, params.callback);
   } catch (error) {
@@ -70,26 +70,26 @@ function getPublicData() {
 
 function gradeQuiz(payload) {
   if (!payload || !payload.courseId || !Array.isArray(payload.answers)) {
-    throw new Error('Data jawaban tidak valid.');
+    throw new Error('Invalid answer data.');
   }
 
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   const course = readSheet_(ss, 'Courses').find(row =>
     row.course_id === payload.courseId && isVisible_(row.visible) && isActive_(row.active)
   );
-  if (!course) throw new Error('Course tidak ditemukan atau kuis belum diaktifkan.');
+  if (!course) throw new Error('Course not found or its quiz is not active.');
 
   const questions = readSheet_(ss, 'Questions')
     .filter(row => row.course_id === payload.courseId && isActive_(row.active));
   if (!questions.length || payload.answers.length !== questions.length) {
-    throw new Error('Jumlah jawaban tidak sesuai dengan jumlah soal.');
+    throw new Error('The number of answers does not match the number of questions.');
   }
 
   const answerMap = new Map(payload.answers.map(item => [
     String(item.questionId), String(item.option || '').toUpperCase()
   ]));
   if (answerMap.size !== questions.length || questions.some(q => !answerMap.has(q.question_id))) {
-    throw new Error('Ada jawaban yang terduplikasi atau tidak lengkap.');
+    throw new Error('Some answers are duplicated or incomplete.');
   }
 
   const correct = questions.reduce((total, question) =>
@@ -102,7 +102,7 @@ function gradeQuiz(payload) {
 
 function readSheet_(ss, sheetName) {
   const sheet = ss.getSheetByName(sheetName);
-  if (!sheet) throw new Error('Tab "' + sheetName + '" tidak ditemukan.');
+  if (!sheet) throw new Error('Tab "' + sheetName + '" not found.');
 
   const values = sheet.getDataRange().getDisplayValues();
   if (values.length < 2) return [];
