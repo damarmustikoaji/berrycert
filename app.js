@@ -215,7 +215,7 @@
   document.addEventListener("keydown", (event) => { if ((event.key === "Enter" || event.key === " ") && event.target.matches(".program-card")) { event.preventDefault(); go("detail", event.target.dataset.open); } });
   function loadPrograms() {
     if (!useApi) { render(); return; }
-    app.innerHTML = `<div class="page-wrap"><section class="result"><div class="eyebrow">BERRY CERTIFICATE</div><h1>Loading data…</h1></section></div>`;
+    app.innerHTML = `<div class="page-wrap"><section class="result"><div class="eyebrow">BERRY CERTIFICATE</div><h1>Loading data…</h1><p>Fetching programs. This will only take a moment.</p></section></div>`;
     callApi("data")
       .then((data) => {
         const accents = ["peach", "lilac", "mint"];
